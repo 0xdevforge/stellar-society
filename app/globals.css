@@ -6,4 +6,80 @@ html,
 body,
 :root {
   height: 100%;
+
 }
+
+.glow{
+  --bg-size: 400%;
+  --color-one: hsl(15 90% 55%);
+  --color-two: hsl(40 95% 55%);
+  background: linear-gradient(
+                90deg,
+                var(--color-one),
+                var(--color-two),
+                var(--color-one)
+              ) 0 0 / var(--bg-size) 100%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: move-bg 8s infinite linear;
+}
+@keyframes move-bg {
+  to {
+    background-position: var(--bg-size) 0;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .boujee-text {
+    animation: move-bg 8s linear infinite;
+  }
+  @keyframes move-bg {
+    to {
+      background-position: var(--bg-size) 0;
+    }
+  }
+}
+
+.arc-text {
+  font-size: 12px;
+}
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+.arc-text-path {
+  animation: spin 10s linear infinite;
+}
+
+
+.shape-blue-oval {
+  width: 128px;
+  height: 128px;
+  background-color: #60A5FA;
+  border-radius: 9999px;
+}
+
+.shape-orange-blob {
+  width: 120px;
+  height: 180px;
+  rotate: 110deg;
+  background-color: #6ca3e0;
+  border-radius: 70%;
+}
+.shape-purple-diamond {
+  width: 190px;
+  height: 190px;
+  background-color: #A78BFA;
+  clip-path: polygon(50% 0%, 0% 50%, 50% 100%, 100% 50%);
+  transform: rotate(90deg);
+}
+.square {
+  height: 50px;
+  width: 50px;
+  background-color: #555;
+}
+
